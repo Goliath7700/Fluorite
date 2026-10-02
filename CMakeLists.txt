@@ -14,7 +14,7 @@ else()
     # 1. Look for a SDL3 package,
     # 2. look for the SDL3-shared component, and
     # 3. fail if the shared component cannot be found.
-    find_package(SDL3 REQUIRED CONFIG REQUIRED COMPONENTS SDL3-shared)
+    find_package(SDL3 REQUIRED CONFIG REQUIRED COMPONENTS SDL3-static)
 endif()
 
 # Create your game executable target as usual
@@ -30,4 +30,4 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 )
 
 # Link to the actual SDL3 library.
-target_link_libraries(${PROJECT_NAME} PRIVATE SDL3::SDL3)
+target_link_libraries(${PROJECT_NAME} PRIVATE SDL3::SDL3-static)
